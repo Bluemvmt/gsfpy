@@ -13,6 +13,7 @@ from ctypes import (
     string_at,
 )
 from os import environ
+from platform import machine
 from pathlib import Path
 
 from .enums import FileMode, RecordType, SeekOption

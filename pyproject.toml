@@ -5,14 +5,15 @@ requires = [ "poetry_core>=1.0.0" ]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "gsfpy"
-version = "2.1.0"
+name = "bluemvmt-gsfpy"
+version = "2.1.1"
 description = "Python wrapper for the C implementation of the Generic Sensor Format library"
 license = "MIT"
 authors = [
-  "UK Hydrographic Office <datascienceandengineering@ukho.gov.uk>"
+  "UK Hydrographic Office <datascienceandengineering@ukho.gov.uk>",
+  "Bluemvmt <vincent.sheffer@bluemvmt.com>"
 ]
-homepage = "https://github.com/UKHO/gsfpy"
+homepage = "https://github.com/bluemvmt/gsfpy.git"
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Natural Language :: English",
@@ -21,7 +22,7 @@ classifiers = [
 readme = "README.md"
 exclude = [ "tests/" ]
 keywords = [ "bathymetry", "gsf", "libgsf" ]
-repository = "https://github.com/UKHO/gsfpy"
+repository = "https://github.com/bluemvmt/gsfpy.git"
 
   [[tool.poetry.packages]]
   include = "gsfpy"

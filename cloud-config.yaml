@@ -1,0 +1,19 @@
+write_files:
+  - path: /run/scripts/provision-base.sh
+    content: |
+      #!/bin/bash 
+      iptables -P FORWARD ACCEPT
+      apt-get update -y  
+      apt-get install -y \
+          virtualenv \
+          python3-pip
+      su -c "virtualenv venv-pypi" - ubuntu
+      su -c "source venv-pypi/bin/activate ; pip install --upgrade pip ; pip install poetry pyscaffold[all]" - ubuntu
+      cat << 'EOF' > /home/ubuntu/.bash_profile
+        source $HOME/.bashrc
+        source venv-pypi/bin/activate
+      EOF
+      chown ubuntu:ubuntu /home/ubuntu/.bash_profile
+    permissions: '0755'
+runcmd:
+  - [ sh, "/run/scripts/provision-base.sh" ]

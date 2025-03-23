@@ -14,6 +14,7 @@ from ctypes import (
 )
 from os import environ
 from pathlib import Path
+from platform import machine
 
 from .enums import FileMode, RecordType, SeekOption
 from .GSF_POSITION import c_GSF_POSITION
@@ -24,7 +25,7 @@ from .gsfRecords import c_gsfRecords
 from .gsfScaleFactors import c_gsfScaleFactors
 from .gsfSwathBathyPing import c_gsfSwathBathyPing
 
-_libgsf_abs_path = str(Path(__file__).parent / "libgsf" / "libgsf03-08.so")
+_libgsf_abs_path = str(Path(__file__).parent / "libgsf" / f"libgsf-{machine()}-03-08.so")
 
 # Check if the libgsf shared object library location is specified in the environment.
 # If so, use the specified library in preference to the bundled version. Handle the

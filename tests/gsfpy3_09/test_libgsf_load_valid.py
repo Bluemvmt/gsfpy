@@ -1,6 +1,8 @@
 import os
 from importlib import reload
 
+from platform import machine
+
 from pytest import fail
 
 
@@ -11,7 +13,7 @@ def test_libgsf_load_succeeds_with_valid_path(mocker):
             os.environ,
             {
                 "GSFPY3_09_LIBGSF_PATH": os.path.join(
-                    os.path.abspath(os.path.dirname(__file__)), "libgsf/libgsf03-09.so"
+                    os.path.abspath(os.path.dirname(__file__)), f"libgsf/libgsf-{machine()}-03-09.so"
                 )
             },
         )

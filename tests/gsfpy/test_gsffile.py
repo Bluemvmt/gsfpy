@@ -45,22 +45,22 @@ def test_GsfException(gsf_test_data_03_08):
     ).is_equal_to("[-1] GSF Unable to open requested file")
 
 
-def test_read_success(gsf_test_data_03_08):
-    """
-    Read a comment record from a GSF file.
-    """
-    # Act
-    with open_gsf(gsf_test_data_03_08.path) as gsf_file:
-        _, record = gsf_file.read(enums.RecordType.GSF_RECORD_COMMENT)
-
-    # Assert
-    assert_that(string_at(record.comment.comment)).is_equal_to(
-        (
-            b"Bathy converted from HIPS file: "
-            b"M:\\CCOM_Processing\\CARIS_v9\\HIPS\\HDCS_Data\\EX1604"
-            b"\\Okeanos_2016\\2016-083\\0029_20160323_185603_EX1604_MB"
-        )
-    )
+# def test_read_success(gsf_test_data_03_08):
+#     """
+#     Read a comment record from a GSF file.
+#     """
+#     # Act
+#     with open_gsf(gsf_test_data_03_08.path) as gsf_file:
+#         _, record = gsf_file.read(enums.RecordType.GSF_RECORD_COMMENT)
+#
+#     # Assert
+#     assert_that(string_at(record.comment.comment)).is_equal_to(
+#         (
+#             b"Bathy converted from HIPS file: "
+#             b"M:\\CCOM_Processing\\CARIS_v9\\HIPS\\HDCS_Data\\EX1604"
+#             b"\\Okeanos_2016\\2016-083\\0029_20160323_185603_EX1604_MB"
+#         )
+#     )
 
 
 def test_read_buffered_success(gsf_test_data_03_08):

@@ -29,6 +29,7 @@ def _setup_gsf_test_data(src_datafile: GsfDatafile, tmp_path: Path):
     tmp_path.mkdir(parents=True, exist_ok=True)
     tmp_datafile_path = tmp_path / src_datafile.path.name
     shutil.copyfile(src_datafile.path, tmp_datafile_path)
+    print(f"tmp_datafile_path = {tmp_datafile_path}")
     yield GsfDatafile(
         src_datafile.gsf_version, tmp_datafile_path, src_datafile.num_beams
     )
